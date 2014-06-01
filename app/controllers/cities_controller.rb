@@ -59,7 +59,7 @@ class CitiesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @city }
       #if this is our last city to name, and the user's answer is true and not a duplicate answer, we'll save it in the database and redirect to the 'you won!' page
       elsif @cities.count == 3 && correct == true && is_dup == false && @city.save
-        format.html { redirect_to youwon_path, notice: 'City was successfully created.' }
+        format.html { redirect_to cities_youwon_path, notice: 'City was successfully created.' }
         format.json { render action: 'show', status: :created, location: @state }
       else
         format.html { render action: 'new' }

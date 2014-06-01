@@ -4,18 +4,24 @@ module ApplicationHelper
 	def check_answer(answer)
 
 		citylist = ["Atlanta","Asheville","Charlotte","Raleigh"]
+
+		statelist = ["Alaska","Hawaii","Washington","Oregon","California","Arizona","Nevada","Idaho","Montana","Utah","New Mexico","Colorado","Wyoming","North Dakota","South Dakota","Nebraska","Kansas","Oklahoma","Texas","Louisiana","Arkansas","Missouri","Iowa","Minnesota","Wisconsin","Illinois","Indiana","Ohio","Michigan","Kentucky","Tennessee","Mississippi","Alabama","Georgia","Florida","South Carolina","North Carolina","Virginia","West Virginia","Maryland","Delaware","Pennsylvania","New Jersey","New York","Connecticut","Rhode Island","Massachusetts","New Hampshire","Vermont","Maine"]		
 		#additional master-lists could be placed here.
+		
+		correct = correct_loop(answer, statelist)
 
+		#to loop through additional lists, we could create another method that takes two parameters (answer and array), but for now let's just leave it as is and make sure this works.
+
+		return correct
+	end
+
+	def correct_loop(user_ans, ans_list)
 		correct = false
-
-		citylist.each do |c|
-			if answer == c
+		ans_list.each do |al|
+			if user_ans == al
 				correct = true
 			end
 		end
-		#to loop through additional lists, we could create another method that takes two parameters (answer and array), but for now let's just leave it as is and make sure this works.
-
-
 		return correct
 	end
 

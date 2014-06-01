@@ -1,8 +1,19 @@
 Quizapp::Application.routes.draw do
 
-  get 'cities/youwon' => 'cities#youwon', as: :youwon
+
+  get 'welcome/home'
+  get 'welcome/youwon' => 'welcome#youwon', as: :youwon
+
+  root 'welcome#home'
+
+  post 'cities/new' => 'cities#new'
+  post 'states/new' => 'states#new'
+
+  get 'cities/youwon' => 'cities#youwon'
 
   resources :cities
+  resources :states
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
